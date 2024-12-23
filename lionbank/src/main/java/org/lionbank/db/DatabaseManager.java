@@ -1,9 +1,15 @@
 package org.lionbank.db;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 import javax.security.auth.login.AccountNotFoundException;
 
 public class DatabaseManager {
+
   private final Connection connection;
 
   public DatabaseManager(String url, String user, String password)
@@ -67,7 +73,8 @@ public class DatabaseManager {
     }
   }
 
-  public void updateBalance(String accountId, double amount) throws AccountNotFoundException, SQLException {
+  public void updateBalance(String accountId, double amount)
+      throws AccountNotFoundException, SQLException {
     double currentBalance = getBalance(accountId);
     String query = "UPDATE accounts SET balance = ? WHERE account_id = ?";
     try (PreparedStatement stmt = connection.prepareStatement(query)) {
@@ -75,5 +82,21 @@ public class DatabaseManager {
       stmt.setString(2, accountId);
       stmt.executeUpdate();
     }
+  }
+
+  public List<String> getAccounts(String customerId) throws AccountNotFoundException, SQLException {
+    String query = "SELECT account_id FROM accounts WHERE customer_id = ?";
+    List<String> accounts = new ArrayList<>();
+
+    try (PreparedStatement stmt = connection.prepareStatement(query)) {
+      stmt.setString(1, customerId);
+      ResultSet rs = stmt.executeQuery();
+      while (rs.next()) {
+        accounts.add(rs.getString(1));
+      }
+    } catch (Exception e) {
+      throw new AccountNotFoundException("Account not found.");
+    }
+    return accounts;
   }
 }

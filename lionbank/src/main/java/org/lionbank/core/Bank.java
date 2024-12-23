@@ -1,10 +1,11 @@
 package org.lionbank.core;
 
-import org.lionbank.db.DatabaseManager;
 import com.lionbank.exception.BankOperationException;
 import com.lionbank.exception.InvalidTransactionException;
 import java.sql.SQLException;
+import java.util.List;
 import javax.security.auth.login.AccountNotFoundException;
+import org.lionbank.db.DatabaseManager;
 
 public class Bank {
 
@@ -54,5 +55,10 @@ public class Bank {
 
   public double checkBalance(String accountId) throws AccountNotFoundException, SQLException {
     return dbManager.getBalance(accountId);
+  }
+
+  public List<String> getAccounts(String customerId)
+      throws SQLException, AccountNotFoundException {
+    return dbManager.getAccounts(customerId);
   }
 }
