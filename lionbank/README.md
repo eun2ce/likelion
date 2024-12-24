@@ -7,3 +7,5 @@
   - [docker-compose 로 MySQL 활용하기: 은행 사용자 정보 저장](https://eun2ce.github.io/posts/likelion-grow-up-lionbank-proj/)
 - [x] (2024-12-23) collection framework 사용하여 전체 계좌를 조회하는 기능 추가
   - [패치 내역](https://github.com/eun2ce/likelion/commit/18f544e72286106c87e7e99a398baba84e4547dd)
+- [x] (2024-12-24) Scanner -> BufferedReader 로 변경
+- [] () 은행 시스템 개시, 마감을 파일로 저장
