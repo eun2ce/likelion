@@ -8,4 +8,5 @@
 - [x] (2024-12-23) collection framework 사용하여 전체 계좌를 조회하는 기능 추가
   - [패치 내역](https://github.com/eun2ce/likelion/commit/18f544e72286106c87e7e99a398baba84e4547dd)
 - [x] (2024-12-24) Scanner -> BufferedReader 로 변경
-- [] () 은행 시스템 개시, 마감을 파일로 저장
+- [x] (2024-12-27) 로그 파일 작성 기능 추가
+  - [패치 내역]https://github.com/eun2ce/likelion/commit/d6aeb14027b493a5b92c5ea5361933f6854f9173)
