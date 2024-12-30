@@ -17,8 +17,22 @@ public enum Menu {
     this.value = value;
   }
 
+  // using Stream API
   public static Menu findNameByValue(int value) {
     return Arrays.stream(values()).filter(menu -> menu.value == value).findFirst()
         .orElseThrow(IllegalAccessError::new);
   }
+// using forEach
+//  public static Menu findNameByValue(int value) {
+//    Menu menu = null;
+//    for (Menu m : values()) {
+//      if (m.value == value) {
+//        menu = m;
+//      }
+//    }
+//    if (menu == null) {
+//      throw new IllegalAccessError("Invalid menu value: " + value);
+//    }
+//    return menu;
+//  }
 }
