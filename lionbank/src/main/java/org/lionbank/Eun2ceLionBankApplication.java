@@ -3,20 +3,11 @@ package org.lionbank;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.List;
-import java.util.Scanner;
 import org.lionbank.core.Bank;
 import org.lionbank.db.DatabaseManager;
+import org.lionbank.util.Menu;
 
 public class Eun2ceLionBankApplication {
-
-  // 명령상수
-  private static final int CREATE_USER = 1;
-  private static final int CREATE_ACCOUNT = 2;
-  private static final int DISPLAY_ACCOUNTS = 3;
-  private static final int DEPOSIT_AMOUNT = 4;
-  private static final int WITHDRAW_AMOUNT = 5;
-  private static final int DISPLAY_ACCOUNT_BALANCE = 6;
-  private static final int EXIT = 7;
 
   public static void main(String[] args) {
     try {
@@ -37,9 +28,8 @@ public class Eun2ceLionBankApplication {
         System.out.println("7. 종료");
         System.out.print("선택: ");
 
-        int choice = Integer.parseInt(br.readLine());
-
-        switch (choice) {
+        Menu menu = Menu.findNameByValue(Integer.parseInt(br.readLine()));
+        switch (menu) {
           case CREATE_USER:
             System.out.print("고객 ID: ");
             String customerId = br.readLine();

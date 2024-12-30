@@ -10,3 +10,4 @@
 - [x] (2024-12-24) Scanner -> BufferedReader 로 변경
 - [x] (2024-12-27) 로그 파일 작성 기능 추가
   - [패치 내역]https://github.com/eun2ce/likelion/commit/d6aeb14027b493a5b92c5ea5361933f6854f9173)
+- [x] (2024-12-30) 메뉴 선택 시 enum 과 stream 사용
