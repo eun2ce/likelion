@@ -2,6 +2,7 @@ package com.example.iocexam.controller;
 
 import com.example.iocexam.domain.User;
 import com.example.iocexam.service.UserService;
+import java.util.List;
 
 public class UserController {
 
@@ -19,5 +20,13 @@ public class UserController {
     user.setPassword(password);
 
     userService.joinUser(user);
+  }
+
+  public User getUserByEmail(String email) {
+    return userService.getUserByEmail(email);
+  }
+
+  public List<User> getUsers() {
+    return userService.getUsers();
   }
 }
