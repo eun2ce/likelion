@@ -1,8 +1,16 @@
 package com.example.iocexam.domain;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "user_table") //Syntax error in SQL statement "insert into [*]user > user가 h2의 예약어라서 피하기위해 테이블명을 변경
 public class User {
-  private String name;
+
+  @Id
   private String email;
+  private String name;
   private String password;
 
   public String getName() {
@@ -27,14 +35,5 @@ public class User {
 
   public void setPassword(String password) {
     this.password = password;
-  }
-
-  @Override
-  public String toString() {
-    return "User{" +
-        "name='" + name + '\'' +
-        ", email='" + email + '\'' +
-        ", password='" + password + '\'' +
-        '}';
   }
 }

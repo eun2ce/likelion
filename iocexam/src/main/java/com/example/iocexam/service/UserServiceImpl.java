@@ -1,28 +1,32 @@
 package com.example.iocexam.service;
 
 import com.example.iocexam.domain.User;
-import com.example.iocexam.repository.UserDao;
+import com.example.iocexam.repository.UserRepository;
+import jakarta.transaction.Transactional;
 import java.util.List;
+import java.util.NoSuchElementException;
 
+@Transactional
 public class UserServiceImpl implements UserService {
-  private final UserDao userDao;
 
-  public UserServiceImpl(UserDao userDao) {
-    this.userDao = userDao;
+  private final UserRepository userRepository;
+
+  public UserServiceImpl(UserRepository userRepository) {
+    this.userRepository = userRepository;
   }
 
   @Override
   public void joinUser(User user) {
-    userDao.addUser(user);
+    userRepository.save(user);
   }
 
   @Override
   public User getUserByEmail(String email) {
-    return userDao.getUser(email);
+    return userRepository.findByEmail(email).orElseThrow(NoSuchElementException::new);
   }
 
   @Override
   public List<User> getUsers() {
-    return userDao.getUsers();
+    return userRepository.findAll();
   }
 }
