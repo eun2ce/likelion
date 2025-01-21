@@ -36,5 +36,5 @@ out/
 ### VS Code ###
 .vscode/
 
-### env ###
-/db/H2/*
+### db
+*.db
